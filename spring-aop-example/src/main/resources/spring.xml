@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="helloWorld" class="com.freeze.spring.HelloWorld">
+		<property name="name" value="hejiebing"></property>
+	</bean>
+
+	<bean id="sampleServiceBean" class="com.freeze.spring.aop.SampleService">
+		<property name="name" value="How are you ?" />
+		<property name="id" value="456123" />
+	</bean>
+	
+	<bean id="beforeMethodBean" class="com.freeze.spring.aop.BeforeMethod" />
+	
+	<bean id="afterReturningMethodBean" class="com.freeze.spring.aop.AfterReturningMethod" />
+	
+	<bean id ="afterThrowingExceptionMethod" class="com.freeze.spring.aop.AfterThrowingExceptionMethod"></bean>
+	
+	<bean id="aroundMethod" class="com.freeze.spring.aop.AroundMethod"></bean>
+	
+	<bean id="sampleServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="sampleServiceBean" />
+		<property name="interceptorNames">
+			<list>
+				<value>beforeMethodBean</value>
+				
+				<value>afterReturningMethodBean</value>
+				
+				<value>afterThrowingExceptionMethod</value>
+				
+				<value>aroundMethod</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

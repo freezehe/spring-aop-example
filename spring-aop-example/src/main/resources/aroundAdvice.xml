@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<bean id="employeeManager" class="com.freeze.spring.aop.aroundAdvice.EmployeeManagerImpl"></bean>
+	
+	<bean id="loggingAspect" class="com.freeze.spring.aop.aroundAdvice.LoggingAspect"></bean>
+	
+	<aop:config>
+		<aop:aspect ref="loggingAspect">
+			<aop:pointcut expression="execution(* com.freeze.spring.aop.aroundAdvice.EmployeeManagerImpl.*(..))" id="loggingPointCut"/>
+			<!-- around advice -->
+			<aop:around method="logAroundAllMethods" pointcut-ref="loggingPointCut"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
