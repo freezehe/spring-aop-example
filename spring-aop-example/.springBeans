@@ -7,14 +7,14 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>src/main/resources/spring.xml</config>
-		<config>src/main/resources/spring-mvc.xml</config>
-		<config>src/main/resources/spring-aspect.xml</config>
-		<config>src/main/resources/beforeAdvice.xml</config>
-		<config>src/main/resources/after-returningAdvice.xml</config>
-		<config>src/main/resources/after-throwingAdvice.xml</config>
-		<config>src/main/resources/afterAdvice.xml</config>
-		<config>src/main/resources/aroundAdvice.xml</config>
+		<config>src/main/resources/aop-annotations.xml</config>
+		<config>src/main/resources/before-annotations.xml</config>
+		<config>src/main/resources/afterThrowing-xml.xml</config>
+		<config>src/main/resources/afterReturning-xml.xml</config>
+		<config>src/main/resources/after-xml.xml</config>
+		<config>src/main/resources/around-xml.xml</config>
+		<config>src/main/resources/before-xml.xml</config>
+		<config>src/main/resources/aop-xml.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
